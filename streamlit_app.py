@@ -28,13 +28,13 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT
 ingredients_list = st.multiselect( "Choose up to 5 ingredients:",my_dataframe)
 
 if ingredients_list:
-    st.write("You selected:", ingredients_list)
+    st.write("You selected:")
     #st.text(ingredients_list)
     ingredients_string=''
 
     for fruit_chosen in ingredients_list:
         ingredients_string+=fruit_chosen
-    #st.write(ingredients_string)
+    st.write(ingredients_string)
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,NAME_ON_ORDER )
             values ('""" + ingredients_string + """','""" +name_on_order + """' )"""
